@@ -4,14 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyline-X | Street Racing - Eclipse RP</title>
-    <!-- Link to the manifest file -->
     <link rel="manifest" href="manifest.json">
-
-    <!-- Theme color for the browser UI -->
     <meta name="theme-color" content="#111111">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
     <style>
-        /* CSS Variables */
         :root {
             --bg-main: #111111;
             --bg-secondary: #1a1a1a;
@@ -21,7 +17,6 @@
             --text-muted: #aaaaaa;
         }
 
-        /* Custom Theme Scrollbar */
         ::-webkit-scrollbar {
             width: 12px;
         }
@@ -40,14 +35,12 @@
             background: var(--accent-hover); 
         }
 
-        /* Firefox Compatibility */
         html {
             scrollbar-width: thin;
             scrollbar-color: var(--accent-blue) var(--bg-main);
             scroll-behavior: smooth;
         }
 
-        /* Base Styles */
         body {
             background-color: var(--bg-main);
             color: var(--text-main);
@@ -57,7 +50,6 @@
             line-height: 1.6;
         }
 
-        /* Updated Logo Styles for Image */
         .logo {
             display: flex;
             align-items: center;
@@ -85,12 +77,10 @@
             color: var(--accent-blue);
         }
 
-        /* Hero Section with Darkened Background Image */
         #hero {
             text-align: center;
             padding: 200px 20px;
-            background: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 1)), 
-                        url('assets/banner.png');
+            background: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 1)), url('assets/banner.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -129,7 +119,6 @@
             background-color: var(--accent-hover);
         }
 
-        /* Content Sections */
         .container {
             padding: 80px 20px;
             max-width: 1000px;
@@ -149,7 +138,6 @@
             color: var(--accent-blue);
         }
 
-        /* Information Cards */
         .grid {
             display: flex;
             gap: 30px;
@@ -183,7 +171,6 @@
             font-size: 0.95em;
         }
 
-        /* Club Leadership Avatar Cards */
         .leadership-grid {
             display: flex;
             gap: 30px;
@@ -226,9 +213,30 @@
             margin: 0;
             color: var(--text-muted);
             font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
         }
 
-        /* How to Join Steps */
+        .leadership-phone {
+            margin-top: 6px;
+            color: var(--text-main);
+            font-size: 0.92em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .leadership-phone svg {
+            height: 1em;
+            width: 1em;
+            fill: currentColor;
+            vertical-align: middle;
+        }
+
         .steps-container {
             display: flex;
             flex-direction: column;
@@ -268,7 +276,6 @@
             font-size: 0.95em;
         }
 
-        /* Join Discord Section */
         .discord-card {
             background-color: var(--bg-secondary);
             padding: 50px 30px;
@@ -299,7 +306,6 @@
             font-size: 1.05em;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -311,7 +317,8 @@
             nav a {
                 margin: 0 10px;
             }
-            .grid, .leadership-grid {
+            .grid,
+            .leadership-grid {
                 flex-direction: column;
                 align-items: center;
             }
@@ -334,7 +341,6 @@
 
     <site-header></site-header>
 
-    <!-- Hero Section -->
     <main>
         <section id="hero">
             <h1>SKYLINE-X</h1>
@@ -342,7 +348,6 @@
             <a href="#join" class="btn">Get Whitelisted</a>
         </section>
 
-        <!-- Features Section -->
         <section id="about" class="container">
             <h2 class="section-title">Why <span>Join Us?</span></h2>
             <div class="grid">
@@ -361,31 +366,41 @@
             </div>
         </section>
 
-        <!-- Club Leadership Section -->
         <section id="leadership" class="container">
             <h2 class="section-title">Club <span>Leadership</span></h2>
             <div class="leadership-grid">
-                
+
                 <div class="leadership-card">
-                    <img src="assets/avatars/ryder-amille.png" alt="Ryder Amille" class="leadership-avatar">
+                    <img src="assets/avatars/ryder-amille.jpg" alt="Ryder Amille" class="leadership-avatar">
                     <h3>Ryder Amille</h3>
                     <p>@youngdollazz1700</p>
+                    <div class="leadership-phone">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.7.59 1 1 0 011 1v3.54a1 1 0 01-1 1C7.28 22 2 16.72 2 10.25a1 1 0 011-1H6.5a1 1 0 011 1c0 1.27.2 2.52.59 3.7a1 1 0 01-.24 1.01l-2.2 2.2z"/>
+                        </svg>
+                        <span>319-5066</span>
+                    </div>
                 </div>
 
                 <div class="leadership-card">
                     <img src="assets/favicon.png" alt="Ryder Amille" class="leadership-avatar">
                     <h3>Your Name Here</h3>
                     <p>@yourdiscordname</p>
+                    <div class="leadership-phone">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.7.59 1 1 0 011 1v3.54a1 1 0 01-1 1C7.28 22 2 16.72 2 10.25a1 1 0 011-1H6.5a1 1 0 011 1c0 1.27.2 2.52.59 3.7a1 1 0 01-.24 1.01l-2.2 2.2z"/>
+                        </svg>
+                        <span>000-0000</span>
+                    </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- How To Join Section -->
         <section id="join" class="container">
             <h2 class="section-title">How To <span>Join</span></h2>
             <div class="steps-container">
-                
+
                 <div class="step">
                     <div class="step-number">01</div>
                     <div class="step-content">
@@ -397,28 +412,28 @@
                 <div class="step">
                     <div class="step-number">02</div>
                     <div class="step-content">
-                        <h3>Request Whitelist</h3>
-                        <p>Go to the Request Verification channel and send a . or anything</p>
+                        <h3>Getting Whitelisted</h3>
+                        <p>To get Whitelisted you have to contact Ryder Amille Directly or one of the Overseers.</p>
                     </div>
                 </div>
 
                 <div class="step">
                     <div class="step-number">03</div>
                     <div class="step-content">
-                        <h3>Acceptions</h3>
-                        <p>You'll be accepted and given the right roles and thats it! We dont do interviews but we usually want to meet you before hand.</p>
+                        <h3>Requirements</h3>
+                        <p>1. Must have a Sports or Muscle Vehicle of any type. Must be atleast 15 years or older. And Must be active occasionally.</p>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Join Discord Section -->
         <section id="discord" class="container">
             <div class="discord-card">
                 <h2>Join The <span>Community</span></h2>
-                <p>Ready to hit the streets? Connect with members, get event announcements, and claim your whitelist role directly in our Discord server.</p>
+                <p>Ready to hit the streets? Connect with members, get event announcements, and claim your whitelist role (IN-CITY) and join the discord. to finish up</p>
                 <a href="https://discord.gg/gtStC2C6Nf" target="_blank" class="btn">Join Discord Server</a>
+                <p>You will not be accepted without prior conversations in city with a higher up.</p>
             </div>
         </section>
     </main>

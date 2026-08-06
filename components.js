@@ -1,6 +1,5 @@
 const templateCSS = `
 <style>
-    /* Shared Header & Footer CSS */
     header {
         background-color: rgb(26, 26, 26);
         padding: 20px 50px;
@@ -50,7 +49,6 @@ const templateCSS = `
         font-size: 0.9em;
     }
 
-    /* Responsive Design for Header/Footer */
     @media (max-width: 768px) {
         header {
             flex-direction: column;
@@ -90,12 +88,11 @@ class SiteFooter extends HTMLElement {
         <footer>
             <p>&copy; 2026 Skyline-X Street Racing. All rights reserved.</p>
             <p>Not affiliated with Rockstar Games. Or ECRP</p>
-            <img style="width: 170px; height: auto;" src="assets/transparent-logo.png"> 
+            <img style="width: 170px; height: auto;" src="assets/transparent-logo.png">
         </footer>
         `;
     }
 }
 
-// Define the custom elements
 customElements.define('site-header', SiteHeader);
 customElements.define('site-footer', SiteFooter);
