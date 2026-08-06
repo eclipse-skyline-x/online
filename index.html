@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline-X | Street Racing - Eclipse RP</title>
+    <!-- Link to the manifest file -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Theme color for the browser UI -->
+    <meta name="theme-color" content="#111111">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-main: #111111;
+            --bg-secondary: #1a1a1a;
+            --accent-blue: #ff0000;
+            --accent-hover: #580000;
+            --text-main: #f4f4f4;
+            --text-muted: #aaaaaa;
+        }
+
+        /* Custom Theme Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main); 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-blue); 
+            border-radius: 6px;
+            border: 3px solid var(--bg-main);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-hover); 
+        }
+
+        /* Firefox Compatibility */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-blue) var(--bg-main);
+            scroll-behavior: smooth;
+        }
+
+        /* Base Styles */
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Updated Logo Styles for Image */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            max-height: 60px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section with Darkened Background Image */
+        #hero {
+            text-align: center;
+            padding: 200px 20px;
+            background: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 1)), 
+                        url('assets/banner.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        #hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        #hero p {
+            font-size: 1.2em;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .btn {
+            background-color: var(--accent-blue);
+            color: #ffffff;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Content Sections */
+        .container {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--text-main);
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title span {
+            color: var(--accent-blue);
+        }
+
+        /* Information Cards */
+        .grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: var(--bg-secondary);
+            padding: 40px 30px;
+            border-radius: 6px;
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            border-top: 4px solid var(--accent-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent-blue);
+            font-size: 1.5em;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95em;
+        }
+
+        /* Club Leadership Avatar Cards */
+        .leadership-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .leadership-card {
+            background-color: var(--bg-secondary);
+            padding: 30px 20px;
+            border-radius: 6px;
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            text-align: center;
+            border-top: 4px solid var(--accent-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leadership-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-blue);
+            margin-bottom: 15px;
+        }
+
+        .leadership-card h3 {
+            margin: 0 0 5px 0;
+            color: var(--text-main);
+            font-size: 1.3em;
+        }
+
+        .leadership-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+
+        /* How to Join Steps */
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            background-color: var(--bg-secondary);
+            padding: 25px 30px;
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 0 6px 6px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-right: 30px;
+            min-width: 40px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .step-content h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.3em;
+            color: var(--text-main);
+        }
+
+        .step-content p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95em;
+        }
+
+        /* Join Discord Section */
+        .discord-card {
+            background-color: var(--bg-secondary);
+            padding: 50px 30px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #222;
+            border-top: 4px solid var(--accent-blue);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .discord-card h2 {
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .discord-card h2 span {
+            color: var(--accent-blue);
+        }
+
+        .discord-card p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            font-size: 1.05em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .logo img {
+                max-height: 50px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .grid, .leadership-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .step {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            .discord-card {
+                padding: 35px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <site-header></site-header>
+
+    <!-- Hero Section -->
+    <main>
+        <section id="hero">
+            <h1>SKYLINE-X</h1>
+            <p>Skyline-X Is a Private, Invite only Street Racing Club Community built around suped up fast cars! These People are serious about their whips and have extreme passion into their vehicles.</p>
+            <a href="#join" class="btn">Get Whitelisted</a>
+        </section>
+
+        <!-- Features Section -->
+        <section id="about" class="container">
+            <h2 class="section-title">Why <span>Join Us?</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Car Meets</h3>
+                    <p>Weekly or monthly, Showcase builds, Photography sessions, Social hangouts, Planned in Discord with a scheduled day</p>
+                </div>
+                <div class="card">
+                    <h3>Street Racing Events</h3>
+                    <p>Weekly or Monthly, Beautiful and Visually Appealing Vehicles, Bet on Cars Or Cash, 1on1 or More than plenty if they meet upm Planned in Discord with a scheduled day</p>
+                </div>
+                <div class="card">
+                    <h3>Car Sales</h3>
+                    <p>Showoff and Sell your cars here with a dedicated For Sale Channel no need for bleeter !</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Club Leadership Section -->
+        <section id="leadership" class="container">
+            <h2 class="section-title">Club <span>Leadership</span></h2>
+            <div class="leadership-grid">
+                
+                <div class="leadership-card">
+                    <img src="assets/avatars/ryder-amille.png" alt="Ryder Amille" class="leadership-avatar">
+                    <h3>Ryder Amille</h3>
+                    <p>@youngdollazz1700</p>
+                </div>
+
+                <div class="leadership-card">
+                    <img src="assets/favicon.png" alt="Ryder Amille" class="leadership-avatar">
+                    <h3>Your Name Here</h3>
+                    <p>@yourdiscordname</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- How To Join Section -->
+        <section id="join" class="container">
+            <h2 class="section-title">How To <span>Join</span></h2>
+            <div class="steps-container">
+                
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Join Our Discord</h3>
+                        <p>Our community hub is hosted on Discord. Join the server and read through the rules and lore carefully.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Request Whitelist</h3>
+                        <p>Go to the Request Verification channel and send a . or anything</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Acceptions</h3>
+                        <p>You'll be accepted and given the right roles and thats it! We dont do interviews but we usually want to meet you before hand.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Join Discord Section -->
+        <section id="discord" class="container">
+            <div class="discord-card">
+                <h2>Join The <span>Community</span></h2>
+                <p>Ready to hit the streets? Connect with members, get event announcements, and claim your whitelist role directly in our Discord server.</p>
+                <a href="https://discord.gg/gtStC2C6Nf" target="_blank" class="btn">Join Discord Server</a>
+            </div>
+        </section>
+    </main>
+
+    <site-footer></site-footer>
+
+    <script src="components.js" defer></script>
+
+</body>
+</html>
